@@ -2,18 +2,17 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abel123 AI // Terminal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Abel123 AI — Volledige Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="scanlines"></div>
-
-<div class="app">
-
+<div class="app-container">
+  
+  <!-- HEADER -->
   <header class="hud">
     <div class="hud-left">
       <div class="core" id="core">
@@ -21,34 +20,65 @@
         <span class="core-ring r2"></span>
         <span class="core-dot"></span>
       </div>
-      <div class="hud-title">
-        <h1>ABEL123<span class="dim">//</span><span class="link">AI</span></h1>
-        <p class="hud-sub" id="status">status: <span id="statusText" class="ok">verbonden</span></p>
+      <div>
+        <h1>ABEL123 <span class="highlight">AI</span></h1>
+        <p class="status" id="statusText">● Verbonden</p>
       </div>
     </div>
     <div class="hud-right">
-      <button id="clearBtn" class="ghost-btn" title="Gesprek wissen">RESET</button>
+      <button id="clearBtn" class="btn-ghost">↺</button>
     </div>
   </header>
 
-  <main class="log" id="log">
-    <div class="log-line system">
-      <span class="ts">00:00:00</span>
-      <span class="tag sys">SYS</span>
-      <span class="msg">Abel123 AI online. Typ een bericht om te beginnen.</span>
-    </div>
-  </main>
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" data-tab="chat">💬 Chat</button>
+    <button class="tab" data-tab="image">🎨 Beeld</button>
+    <button class="tab" data-tab="face">👤 Gezicht</button>
+  </div>
 
-  <form class="cmdline" id="cmdForm">
-    <span class="prompt">&gt;</span>
-    <input
-      type="text"
-      id="cmdInput"
-      autocomplete="off"
-      placeholder="schrijf een bericht..."
-    >
-    <button type="submit" id="sendBtn">SEND</button>
-  </form>
+  <!-- CHAT TAB -->
+  <div id="chatTab" class="tab-content active">
+    <div class="log" id="log">
+      <div class="message system">
+        <span class="time">00:00:00</span>
+        <span class="badge sys">SYS</span>
+        <span>Abel123 AI online. Stel een vraag.</span>
+      </div>
+    </div>
+    <form class="input-area" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Typ een bericht..." autocomplete="off">
+      <button type="submit" id="sendBtn">➤</button>
+    </form>
+  </div>
+
+  <!-- IMAGE TAB -->
+  <div id="imageTab" class="tab-content">
+    <div class="image-area">
+      <div class="image-preview" id="imagePreview">
+        <span class="placeholder">🎨 Beschrijf je afbeelding</span>
+      </div>
+      <form class="input-area" id="imageForm">
+        <input type="text" id="imagePrompt" placeholder="bijv. 'een neon cyberpunk stad bij nacht'">
+        <button type="submit" id="generateBtn">✨ Genereer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FACE TAB -->
+  <div id="faceTab" class="tab-content">
+    <div class="face-area">
+      <div class="image-preview" id="facePreview">
+        <span class="placeholder">👤 Upload een gezichtsfoto</span>
+      </div>
+      <div class="upload-area">
+        <input type="file" id="faceUpload" accept="image/*" hidden>
+        <button id="uploadBtn" class="btn-primary">📁 Upload foto</button>
+        <button id="analyzeBtn" class="btn-secondary" disabled>🔍 Analyseer</button>
+      </div>
+      <div class="analysis-result" id="analysisResult"></div>
+    </div>
+  </div>
 
 </div>
 
