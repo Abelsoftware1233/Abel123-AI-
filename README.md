@@ -43,7 +43,7 @@ cd storage/downloads
 Pak de zip uit:
 
 ```bash
-unzip Abel123-AI-.zip
+unzip Abel123-AI--.zip
 ```
 
 Ga naar de uitgepakte map:
