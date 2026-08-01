@@ -49,7 +49,7 @@ unzip Abel123-AI--.zip
 Ga naar de uitgepakte map:
 
 ```bash
-cd Abel123-AI-
+cd Abel123-AI--main
 ```
 
 ### 2. Installeer vereisten
